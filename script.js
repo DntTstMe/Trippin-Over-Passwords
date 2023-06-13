@@ -43,3 +43,10 @@ while (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpec
   includeNumeric = confirm("Do you want to include numbers?")
   includeSpecial = confirm("Do you want to include special characters?")
 }
+
+// Define variables based on criteria
+var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numericChars = "0123456789";
+var specialChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
