@@ -31,22 +31,49 @@ while (passwordLength < 8 || passwordLength > 128) {
 // Asks user which character types to include
 includeLowercase = confirm("Do you want to include lowercase letters?");
 includeUppercase = confirm("Do you want to include uppercase letters?");
-includeNumeric = confirm("Do you want to include numbers?")
+includeNumbers = confirm("Do you want to include numbers?")
 includeSpecial = confirm("Do you want to include special characters?")
 
 
 // Confirms that at least one character type is selected
-while (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
+while (!includeLowercase && !includeUppercase && !includeNumbers && !includeSpecial) {
   alert("At least one character type must be selected!!");
   includeLowercase = confirm("Do you want to include lowercase letters?");
   includeUppercase = confirm("Do you want to include uppercase letters?");
-  includeNumeric = confirm("Do you want to include numbers?")
+  includeNumbers = confirm("Do you want to include numbers?")
   includeSpecial = confirm("Do you want to include special characters?")
 }
 
 // Define variables based on criteria
 var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numericChars = "0123456789";
+var numbersChars = "0123456789";
 var specialChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+// Initialize character set
+var charSet = '';
+
+// if statements to add if chacracter types are selected
+if (includeLowercase) {
+  charset += lowercaseChars;
+}
+if (includeUppercase) {
+  charSet += uppercaseChars;
+}
+if (includeNumbers) {
+  charSet += numbersChars;
+}
+if (includeSpecial) {
+  charSet += specialChars;
+}
+
+// Generates the password
+var password = "";
+for (var i = 0; i < passwordLength; i++)  {
+  var randomIndex = Math.floor(Math.random() * charSet.length)
+  password += charSet[randomIndex];
+}
+
+return password;
+
 
